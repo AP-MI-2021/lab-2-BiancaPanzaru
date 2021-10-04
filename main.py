@@ -39,15 +39,35 @@ def test_is_antipalindrome():
     assert is_antipalindrome(15754) is False
     assert is_antipalindrome(5) is True
 
+def is_palindrome(n) -> bool:
+    cifre_n=[]
+    while n > 0:
+        cifre_n.append(n % 10)
+        n = n // 10
+    l = len(cifre_n)
+    for i in range(0, l // 2):
+        if cifre_n[i] != cifre_n[l - 1 - i]:
+            return False
+    return True
+
+def test_is_palindrome():
+    assert is_palindrome(7557) is True
+    assert is_palindrome(151) is True
+    assert is_palindrome(56) is False
+
 def main():
     while True:
         print("7. Determină dacă un număr este antipalindrom: un număr este antipalindrom dacă oricare două cifre egal depărtate de extremități sunt diferite (excepție făcând cifra din mijloc dacă avem un număr impar de cifre). De exemplu: 2783 este antipalindrom, iar 2773 nu este.")
         print("8. Transformă un număr dat din baza 10 în baza 2. Numărul se dă în baza 10.")
+        print("5. Determină dacă un număr dat este palindrom.")
         print("x. Iesire din program - exit.")
         optiune = input("Alege optiunea: ")
         if optiune == "7":
             n = int(input("Cititi numarul: "))
             print(is_antipalindrome(n))
+        elif optiune == "5":
+            n = int(input("Cititi numarul: "))
+            print(is_palindrome(n))
         elif optiune == "8":
             n = int(input("Cititi numarul: "))
             print(get_base_2(n))
@@ -58,6 +78,7 @@ def main():
 
 test_is_antipalindrome()
 test_get_base_2()
+test_is_palindrome()
 main()
 
 
