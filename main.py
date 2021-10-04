@@ -40,6 +40,11 @@ def test_is_antipalindrome():
     assert is_antipalindrome(5) is True
 
 def is_palindrome(n) -> bool:
+    '''
+    Determina daca un numar este palindrom
+    :param n: numarul intreg
+    :return: returneaza True daca numarul este palindrom, iar in caz contrar False
+    '''
     cifre_n=[]
     while n > 0:
         cifre_n.append(n % 10)
